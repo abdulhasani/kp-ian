@@ -1,29 +1,265 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE jasperReport PUBLIC "-//JasperReports//DTD JasperReport//EN" "http://jasperreports.sourceforge.net/dtds/jasperreport.dtd">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="LaporanRekaMedis" pageWidth="650" pageHeight="842" columnWidth="610" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="698a82ba-506b-47af-a37a-cca84b498848">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="Table Dataset 1" uuid="a98b8858-f5cf-4d85-8728-30dd10de96f6">
+		<queryString>
+			<![CDATA[SELECT
+     dbperiksa.`idperiksa` AS dbperiksa_idperiksa,
+     dbperiksa.`tgl_periksa` AS dbperiksa_tgl_periksa,
+     dbdetailperiksa.`iddetailperiksa` AS dbdetailperiksa_iddetailperiksa,
+     dbdetailperiksa.`idperiksa` AS dbdetailperiksa_idperiksa,
+     dbdetailperiksa.`idpasien` AS dbdetailperiksa_idpasien,
+     dbdetailperiksa.`iddokter` AS dbdetailperiksa_iddokter,
+     dbdetailperiksa.`idobat` AS dbdetailperiksa_idobat,
+     dbdetailperiksa.`obatperbiji` AS dbdetailperiksa_obatperbiji,
+     dbdetailperiksa.`diagnosa` AS dbdetailperiksa_diagnosa,
+     dbdetailperiksa.`alergiobat` AS dbdetailperiksa_alergiobat,
+     dbpasien.`idpasien` AS dbpasien_idpasien,
+     dbpasien.`nama_pasien` AS dbpasien_nama_pasien,
+     dbpasien.`umur` AS dbpasien_umur,
+     dbpasien.`nama_kk` AS dbpasien_nama_kk,
+     dbpasien.`jenis_kelamin` AS dbpasien_jenis_kelamin,
+     dbpasien.`alamat_pasien` AS dbpasien_alamat_pasien,
+     dbpasien.`kunjungan` AS dbpasien_kunjungan,
+     dbpasien.`unit_tujuan` AS dbpasien_unit_tujuan,
+     dbpasien.`jenis_pelayanan` AS dbpasien_jenis_pelayanan
+FROM
+     `dbperiksa` dbperiksa INNER JOIN `dbdetailperiksa` dbdetailperiksa ON dbperiksa.`idperiksa` = dbdetailperiksa.`idperiksa`
+     INNER JOIN `dbpasien` dbpasien ON dbdetailperiksa.`idpasien` = dbpasien.`idpasien`]]>
+		</queryString>
+		<field name="dbperiksa_idperiksa" class="java.lang.Integer"/>
+		<field name="dbperiksa_tgl_periksa" class="java.sql.Date"/>
+		<field name="dbdetailperiksa_iddetailperiksa" class="java.lang.Integer"/>
+		<field name="dbdetailperiksa_idperiksa" class="java.lang.Integer"/>
+		<field name="dbdetailperiksa_idpasien" class="java.lang.Integer"/>
+		<field name="dbdetailperiksa_iddokter" class="java.lang.Integer"/>
+		<field name="dbdetailperiksa_idobat" class="java.lang.Integer"/>
+		<field name="dbdetailperiksa_obatperbiji" class="java.lang.Integer"/>
+		<field name="dbdetailperiksa_diagnosa" class="java.lang.String"/>
+		<field name="dbdetailperiksa_alergiobat" class="java.lang.String"/>
+		<field name="dbpasien_idpasien" class="java.lang.Integer"/>
+		<field name="dbpasien_nama_pasien" class="java.lang.String"/>
+		<field name="dbpasien_umur" class="java.lang.Integer"/>
+		<field name="dbpasien_nama_kk" class="java.lang.String"/>
+		<field name="dbpasien_jenis_kelamin" class="java.lang.String"/>
+		<field name="dbpasien_alamat_pasien" class="java.lang.String"/>
+		<field name="dbpasien_kunjungan" class="java.lang.String"/>
+		<field name="dbpasien_unit_tujuan" class="java.lang.String"/>
+		<field name="dbpasien_jenis_pelayanan" class="java.lang.String"/>
+	</subDataset>
+	<queryString>
+		<![CDATA[SELECT
+     dbperiksa.`idperiksa` AS dbperiksa_idperiksa,
+     dbperiksa.`tgl_periksa` AS dbperiksa_tgl_periksa,
+     dbdetailperiksa.`iddetailperiksa` AS dbdetailperiksa_iddetailperiksa,
+     dbdetailperiksa.`idperiksa` AS dbdetailperiksa_idperiksa,
+     dbdetailperiksa.`idpasien` AS dbdetailperiksa_idpasien,
+     dbdetailperiksa.`iddokter` AS dbdetailperiksa_iddokter,
+     dbdetailperiksa.`idobat` AS dbdetailperiksa_idobat,
+     dbdetailperiksa.`obatperbiji` AS dbdetailperiksa_obatperbiji,
+     dbdetailperiksa.`diagnosa` AS dbdetailperiksa_diagnosa,
+     dbdetailperiksa.`alergiobat` AS dbdetailperiksa_alergiobat,
+     dbpasien.`idpasien` AS dbpasien_idpasien,
+     dbpasien.`nama_pasien` AS dbpasien_nama_pasien,
+     dbpasien.`umur` AS dbpasien_umur,
+     dbpasien.`nama_kk` AS dbpasien_nama_kk,
+     dbpasien.`jenis_kelamin` AS dbpasien_jenis_kelamin,
+     dbpasien.`alamat_pasien` AS dbpasien_alamat_pasien,
+     dbpasien.`kunjungan` AS dbpasien_kunjungan,
+     dbpasien.`unit_tujuan` AS dbpasien_unit_tujuan,
+     dbpasien.`jenis_pelayanan` AS dbpasien_jenis_pelayanan
+FROM
+     `dbperiksa` dbperiksa INNER JOIN `dbdetailperiksa` dbdetailperiksa ON dbperiksa.`idperiksa` = dbdetailperiksa.`idperiksa`
+     INNER JOIN `dbpasien` dbpasien ON dbdetailperiksa.`idpasien` = dbpasien.`idpasien`]]>
+	</queryString>
+	<field name="dbperiksa_idperiksa" class="java.lang.Integer"/>
+	<field name="dbperiksa_tgl_periksa" class="java.sql.Date"/>
+	<field name="dbdetailperiksa_iddetailperiksa" class="java.lang.Integer"/>
+	<field name="dbdetailperiksa_idperiksa" class="java.lang.Integer"/>
+	<field name="dbdetailperiksa_idpasien" class="java.lang.Integer"/>
+	<field name="dbdetailperiksa_iddokter" class="java.lang.Integer"/>
+	<field name="dbdetailperiksa_idobat" class="java.lang.Integer"/>
+	<field name="dbdetailperiksa_obatperbiji" class="java.lang.Integer"/>
+	<field name="dbdetailperiksa_diagnosa" class="java.lang.String"/>
+	<field name="dbdetailperiksa_alergiobat" class="java.lang.String"/>
+	<field name="dbpasien_idpasien" class="java.lang.Integer"/>
+	<field name="dbpasien_nama_pasien" class="java.lang.String"/>
+	<field name="dbpasien_umur" class="java.lang.Integer"/>
+	<field name="dbpasien_nama_kk" class="java.lang.String"/>
+	<field name="dbpasien_jenis_kelamin" class="java.lang.String"/>
+	<field name="dbpasien_alamat_pasien" class="java.lang.String"/>
+	<field name="dbpasien_kunjungan" class="java.lang.String"/>
+	<field name="dbpasien_unit_tujuan" class="java.lang.String"/>
+	<field name="dbpasien_jenis_pelayanan" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="75" width="610" height="1" uuid="efa8e95c-2970-42d8-bc50-3c72bcf0c698"/>
+			</line>
+			<staticText>
+				<reportElement x="0" y="48" width="610" height="24" uuid="4e1914fb-e9d3-4499-b34f-3805e7b96f7e"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Jl. Raya Winduaji, Kec. Paguyangan, Kab Brebes, Jawa Tengah
+]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="72" width="610" height="1" uuid="dddc1981-cc93-47fa-b5e8-8946ace6401e"/>
+			</line>
+			<staticText>
+				<reportElement x="0" y="24" width="610" height="24" uuid="6b4b10c7-06b8-4595-b4ed-020be5a5cc01"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[PUSKESMAS WINDUAJI]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="0" width="610" height="24" uuid="310dcc71-bb9c-4c63-ab0f-9001fe31a30b"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[SISTEM INFORMASI REKAM MEDIS
 
-<jasperReport name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
-    <background>
-        <band/>
-    </background>
-    <title>
-        <band height="79"/>
-    </title>
-    <pageHeader>
-        <band height="35"/>
-    </pageHeader>
-    <columnHeader>
-        <band height="61"/>
-    </columnHeader>
-    <detail>
-        <band height="125"/>
-    </detail>
-    <columnFooter>
-        <band height="45"/>
-    </columnFooter>
-    <pageFooter>
-        <band height="54"/>
-    </pageFooter>
-    <summary>
-        <band height="42"/>
-    </summary>
+]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="164" splitType="Stretch">
+			<componentElement>
+				<reportElement key="table" style="table" x="0" y="19" width="610" height="125" uuid="9be2ca21-d277-45e0-9bc0-bbab2d957aea"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="Table Dataset 1" uuid="29f0b88d-d392-4912-a1b9-f1e2c64fae22"/>
+					<jr:column width="68" uuid="a9d13b85-0afc-41d5-af76-920c8885f5ed">
+						<jr:columnHeader style="table_TD" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="68" height="30" uuid="28406e63-dc1c-4208-b001-1d43d86565ee"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="11" isBold="true"/>
+								</textElement>
+								<text><![CDATA[No. Pasien]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter style="table_TD" height="30" rowSpan="1"/>
+						<jr:detailCell style="table_TD" height="49" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="68" height="49" uuid="718c6f1b-da7a-44e0-aed8-15c99a741a12"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle"/>
+								<textFieldExpression><![CDATA[$F{dbperiksa_idperiksa}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="107" uuid="051d5ef0-730a-4400-ad98-65ee5360fca7">
+						<jr:columnHeader style="table_TD" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="107" height="30" uuid="503152d1-c759-40c9-a272-abef04800e1b"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="11" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Tanggal Periksa]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter style="table_TD" height="30" rowSpan="1"/>
+						<jr:detailCell style="table_TD" height="49" rowSpan="1">
+							<textField pattern="dd MMMMM yyyy">
+								<reportElement x="0" y="0" width="107" height="49" uuid="395fa52d-9d14-421f-abb1-4bfd40ecffda"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle"/>
+								<textFieldExpression><![CDATA[$F{dbperiksa_tgl_periksa}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="160" uuid="aaf90924-589e-4b23-818d-b17663912f14">
+						<jr:columnHeader style="table_TD" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="160" height="30" uuid="8853598d-3cfb-47c0-8e90-70dd451df37d"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="11" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Nama Pasien]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter style="table_TD" height="30" rowSpan="1"/>
+						<jr:detailCell style="table_TD" height="49" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="160" height="49" uuid="0f796e60-ea47-4c8f-9eb6-51b3cf30d060"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<paragraph leftIndent="3"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{dbpasien_nama_pasien}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="69" uuid="9d331d94-d6b8-4dfb-9f88-154d9d7ac0d6">
+						<jr:columnHeader style="table_TD" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="69" height="30" uuid="fc5ef42f-5308-45ec-9fa3-81ebf5c37af9"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="11" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Umur]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter style="table_TD" height="30" rowSpan="1"/>
+						<jr:detailCell style="table_TD" height="49" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="69" height="49" uuid="49c49c93-82d7-46ad-bbb8-3047a77ff6e4"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle"/>
+								<textFieldExpression><![CDATA[$F{dbpasien_umur}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="184" uuid="8e4860a6-7646-4608-9a3e-7b85798a1822">
+						<jr:columnHeader style="table_TD" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="184" height="30" uuid="febbafc6-c11e-43ce-91cc-a3bc4ab341de"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="11" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Diagnosa]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter style="table_TD" height="30" rowSpan="1"/>
+						<jr:detailCell style="table_TD" height="49" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="184" height="49" uuid="475de8ab-f8cb-4b09-bb07-a7da385ad0d4"/>
+								<textElement>
+									<paragraph leftIndent="3"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{dbdetailperiksa_diagnosa}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+	</columnHeader>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
 </jasperReport>
