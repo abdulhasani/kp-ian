@@ -5,9 +5,7 @@
  */
 package ian.RegisterRawatJalan.laporan;
 
-import ian.RegisterRawatJalan.DatabaseHelper.koneksiReport;
-import java.awt.Dimension;
-import java.awt.Toolkit;
+import ian.RegisterRawatJalan.DatabaseHelper.ConnetionPrintout;
 import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
@@ -17,7 +15,6 @@ import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.design.JasperDesign;
-import net.sf.jasperreports.engine.util.JRLoader;
 import net.sf.jasperreports.engine.xml.JRXmlLoader;
 import net.sf.jasperreports.view.JasperViewer;
 
@@ -26,7 +23,7 @@ import net.sf.jasperreports.view.JasperViewer;
  * @author Lucifer-PC
  */
 public class RekamMedis extends javax.swing.JFrame {
-    koneksiReport con = new koneksiReport();
+    ConnetionPrintout con = new ConnetionPrintout();
     
      JasperReport jasRep;
         JasperPrint jaspri;
@@ -98,15 +95,12 @@ public class RekamMedis extends javax.swing.JFrame {
        
         
         try{
-            File report = new File("src/ian/RegisterRawatJalan/Ireport/rekamMedis.jrxml");
-            jasDes = JRXmlLoader.load(report);
-            param.clear();
-            jasRep = JasperCompileManager.compileReport(jasDes);
-            jaspri = JasperFillManager.fillReport(jasRep, param, con.koneksi);
+            System.out.println(ConnetionPrintout.PathReport);
+            jaspri = JasperFillManager.fillReport(ConnetionPrintout.PathReport+"\\LaporanRekaMedis.jasper", null, ConnetionPrintout.getConnection());
             JasperViewer.viewReport(jaspri, false);
             
         } catch(Exception e){
-            JOptionPane.showMessageDialog(null, e.getMessage());
+            e.printStackTrace();
         }
     }//GEN-LAST:event_btnTampilActionPerformed
 

@@ -4,7 +4,7 @@
  */
 package Nciz.RegisterRawatJalan.frame.dialog;
 
-import ian.RegisterRawatJalan.DatabaseHelper.koneksiReport;
+import ian.RegisterRawatJalan.DatabaseHelper.ConnetionPrintout;
 import Nciz.RegisterRawatJalan.Entity.DBVirtualRiwayatPenyakit;
 import Nciz.RegisterRawatJalan.Entity.DbVirtualRiwayatDokter;
 import com.stripbandunk.jwidget.model.DynamicTableModel;
